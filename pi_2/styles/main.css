@@ -1,16 +1,35 @@
 #title{
 	font-size: 26px;
 	line-height: 75px;
+	color: #74ABE8;
+  border-radius:  0px;
+  overflow: hidden;
+  opacity: 0.85;
+  text-shadow: 7px 4px 5px #74ABE8;
+	background-color: none;
 }
 
 .menu-object{
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 300px;
-	height: 75px;
-	font-size: 16px;
+	width: 275px;
+	height: 70px;
+	font-size: 18px;
 	margin-top: 10px;
+}
+
+.container{
+	display: grid;
+  grid-template-columns: repeat (3, 1fr);
+  grid-auto-rows: 100px;
+  gap: 20px;
+}
+
+.containergame{
+	 	text-align: center;
+		grid-auto-rows: 100px;
+
 }
 
 p{
@@ -21,11 +40,25 @@ button.menu-object:active{
 	font-size: 18px;
 	width: 275px;
 	height: 70px;
+	background-color: #8CE1FF;
+	border-bottom:4px solid #1F81ED;
 }
 
 button.menu-object:hover:not(:active){
-	font-size: 22px;
-	width: 325px;
-	height: 85px;
+	font-size: 18px;
+	width: 275px;
+	height: 70px;
+	background-color: #8CE1FF;
+	border-bottom: 4px solid #74ABE8;
 }
 
+body {
+  background-image: url(https://i.pinimg.com/originals/77/42/0d/77420df3f9e33db5b79ee25455d3340e.png);
+  background-size:cover;
+}
+
+
+div.cuerpo {
+	margin-left: auto;
+	margin-right: auto;
+}

@@ -11,9 +11,9 @@ var item = {
 				this.done = true;
 				var c = has_finished();
 				if (c) {
-					alert("You win! Score: " 
+					alert("You win! Score: "
 						+ (100 + items.length - c));
-					loadpage("../");
+					loadpage("../index.html");
 				}
 			}
 			else {

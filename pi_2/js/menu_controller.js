@@ -6,8 +6,10 @@ function start_game(){
 function exit (){
 	if (name != ""){
 		alert("Leaving " + name + "'s game");
+		loadpage("../index.html");
 	}
 	name = "";
+	loadpage("../index.html");
 }
 
 function options(){
@@ -15,4 +17,6 @@ function options(){
 	console.log("Options menu button");
 }
 
-
+function gotomenu(){
+	loadpage ("../index.html")
+}
