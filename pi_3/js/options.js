@@ -33,6 +33,7 @@ var options = function(){
 					this.num = 2;
 				else if (value > 4)
 					this.num = 4;
+				
 			}
 		},
 		methods: { 

@@ -2,13 +2,27 @@ const back = "../resources/back.png";
 const items = ["../resources/cb.png","../resources/co.png","../resources/sb.png",
 "../resources/so.png","../resources/tb.png","../resources/to.png"];
 
+var options_data = {
+	cards:2, dificulty:"hard"
+};
+var load = function(){
+	var json = localStorage.getItem("config");
+	if (json)
+		options_data = JSON.parse(json);
+	else{
+		options_data.cards = 2;
+		options_data.dificulty = "hard";
+	}
+};
+load();
+
 var game = new Vue({
 	el: "#game_id",
 	data: {
 		username:'',
 		current_card: [],
 		items: [],
-		num_cards: 2,
+		num_cards: options_data.cards,
 		bad_clicks: 0
 	},
 	created: function(){
@@ -21,6 +35,10 @@ var game = new Vue({
 		for (var i = 0; i < this.items.length; i++){
 			this.current_card.push({done: false, texture: back});
 		}
+
+		// Dificulty "easy" -- const myTimeout = setTimeout(myGreeting, 5000);
+		// Dificulty "normal" -- const myTimeout = setTimeout(myGreeting, 3000);
+		// Dificulty "hard" -- const myTimeout = setTimeout(myGreeting, 1500);
 	},
 	methods: {
 		clickCard: function(i){
@@ -55,9 +73,23 @@ var game = new Vue({
 			}			
 		}
 	},
+
+	// PUNTUACIO
 	computed: {
 		score_text: function(){
-			return 100 - this.bad_clicks * 20;
+			switch(options_data.dificulty){
+				case "easy":
+					return 100 - this.bad_clicks;
+					break;
+				case "normal":
+					return 100 - this.bad_clicks * 10;
+					break;
+				case "hard":
+					return 100 - this.bad_clicks * 20;
+					break;
+				default:
+					return 100 - this.bad_clicks * 20;
+			}
 		}
 	}
 });
