@@ -32,9 +32,32 @@ var game = new Vue({
 		this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
 		this.items = this.items.concat(this.items); // Dupliquem els elements
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
-		for (var i = 0; i < this.items.length; i++){
-			this.current_card.push({done: false, texture: back});
+		for (var i = 0; i < this.items.length; i++) {
+	   this.current_card.push({done: true, texture: this.items[i]});
 		}
+		if (options_data.dificulty == "easy") {
+			setTimeout(() => {
+				 this.current_card = [];
+				 for (var i = 0; i < this.items.length; i++) {
+						this.current_card.push({done: false, texture: back});
+				 }
+			 },4000);
+		}else if (options_data.dificulty == "normal") {
+			setTimeout(() => {
+				 this.current_card = [];
+				 for (var i = 0; i < this.items.length; i++) {
+						this.current_card.push({done: false, texture: back});
+				 }
+			 },2500);
+		 }else {
+			 setTimeout(() => {
+ 				 this.current_card = [];
+ 				 for (var i = 0; i < this.items.length; i++) {
+ 						this.current_card.push({done: false, texture: back});
+ 				 }
+ 			 },1500);
+		 }
+
 
 		// Dificulty "easy" -- const myTimeout = setTimeout(myGreeting, 5000);
 		// Dificulty "normal" -- const myTimeout = setTimeout(myGreeting, 3000);
@@ -70,7 +93,7 @@ var game = new Vue({
 						i_front = i;
 					}
 				}
-			}			
+			}
 		}
 	},
 
@@ -93,8 +116,3 @@ var game = new Vue({
 		}
 	}
 });
-
-
-
-
-
